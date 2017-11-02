@@ -1,2 +1,2 @@
 # boxes
-boxes/index.html
+[boxes/index.html]
