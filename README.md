@@ -1,2 +1,2 @@
 # boxes
-[boxes/index.html]
+[index](index.html)
