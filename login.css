@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+header {
+	background-color: #333;
+	font-size: 48px;
+	color: white;
+	padding: 1.5em;
+	margin: 0 auto;
+}
+
+header p, p {
+	margin-top: 0.5em;
+	font-size: 18px;
+}
+
+main, header {
+	padding-left: 15%;
+}
+
+input {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.7em;
+	margin: 0.5em 0;
+	border-color: #ddddff;
+	border-radius: 0.5em;
+	border-style: solid;
+}
+
+#login-box {
+	width: 30%;
+}
+
+input:focus {
+	background-color: #eeeeff;
+	border-color: #428bca;
+}
+
+.warning {
+	background-color: #eeeeff;
+	display: block;
+	padding: 0.4em;
+	border-color: #ddddff;
+	border-radius: 0.5em;
+	border-style: solid;
+	color: red;
+	font-weight: bold;
+}
