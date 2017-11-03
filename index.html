@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="register.css">
 <!-- <script src="box.js"></script> -->
 </head>
+<div ng-model="userbox" ng-style="userbox.getStyle()" ng-click="userbox.toggle()" ng-mouseover="userbox.reverse()"></div>
 <div ng-repeat="box in boxes" ng-style="box.getStyle()" ng-click="box.toggle()" ng-mouseover="box.reverse()"></div>
 <body ng-app="app" ng-controller="appCon">
   <div class="box">
@@ -26,8 +27,8 @@
       <td class="input-with-label"><label>blue</label><input type="range" ng-model="userbox.blue" min="0" max="255"></input></td>
     </tr>
     <tr>
-      <td class="input-with-label"><label>V-speed</label><input ng-model="userbox.vSpeed" type="range" min="-5" max="10" value="6"></input></td>
-      <td class="input-with-label"><label>H-speed</label><input ng-model="userbox.hSpeed" type="range" min="-5" max="10" value="6"></input></td>
+      <td class="input-with-label"><label>V-speed</label><input ng-model="userbox.verticalSpeed" type="range" min="-10" max="10"></input></td>
+      <td class="input-with-label"><label>H-speed</label><input ng-model="userbox.horizontalSpeed" type="range" min="-10" max="10"></input></td>
       <td class="input-with-label"><label>radius</label><input ng-model="userbox.radius" type="range" min="0" max="50"></input></td>
     </tr>
     <table>

@@ -1,10 +1,12 @@
 angular.module('app',[]).controller('appCon', function($scope, $interval, $window){
   class Box {
-    constructor(x, y, size, colour, horizontalSpeed, verticalSpeed, radius) {
+    constructor(x, y, size, red, green, blue, horizontalSpeed, verticalSpeed, radius) {
       this.x = x;
       this.y = y;
       this.size = size;
-      this.colour = colour;
+      this.red = red;
+      this.green = green;
+      this.blue = blue;
       this.horizontalSpeed = horizontalSpeed;
       this.verticalSpeed = verticalSpeed;
       this.radius = radius
@@ -12,7 +14,13 @@ angular.module('app',[]).controller('appCon', function($scope, $interval, $windo
 
     getStyle() {
       return {position: 'absolute', left: this.y + 'px', top: this.x + 'px', width : this.size + 'px', height : this.size+ 'px',
-      'background-color' : this.colour, 'border-radius' : this.radius + '%'};
+      'background-color' : this.getColourCode(), 'border-radius' : this.radius + '%'};
+    }
+
+    getColourCode() {
+      let colours = [this.red.toString(16), this.green.toString(16), this.blue.toString(16)];
+      for(let i = 0;i < colours.length;i++){if(colours[i].length < 2){colours[i] = '0' + colours[i];}}
+      return '#' + colours.join('');
     }
 
     move() {
@@ -41,20 +49,25 @@ angular.module('app',[]).controller('appCon', function($scope, $interval, $windo
       this.horizontalSpeed = this.horizontalSpeed * -1;
       this.verticalSpeed = this.verticalSpeed * -1;
     }
+
+    duplicate() {
+      return new Box(this.x, this.y, this.size, this.red, this.green, this.blue, this.horizontalSpeed, this.verticalSpeed, this.radius);
+    }
   }
 
   $scope.boxes = [];
+  $scope.userbox = new Box(50, 50, 100, 0, 127, 255, 6, 6, 40);
 
-  $scope.boxes.push(new Box(50, 50, 100, 'blue', 1, 1));
-  $scope.addBox = function(newBox) {
-    let colours = [newBox.red.toString(16), newBox.green.toString(16), newBox.blue.toString(16)];
-    for(let i = 0;i < colours.length;i++){if(colours[i].length < 2){colours[i] = '0' + colours[i];}}
-    let colourCode = '#' + colours.join('');
-    console.log(colourCode);
-    let theBox = new Box(newBox.x, newBox.y, newBox.size, colourCode, newBox.hSpeed, newBox.vSpeed, newBox.radius);
+  /*$scope.addBox = function(newBox) {
+    let theBox = new Box(newBox.x, newBox.y, newBox.size, newBox.red, newBox.green, newBox.blue, newBox.horizontalSpeed, newBox.verticalSpeed, newBox.radius);
     theBox.start();
     $scope.boxes.push(theBox);
+  }*/
+
+  $scope.addBox = function() {
+    $scope.userbox.start();
+    $scope.boxes.push($scope.userbox);
+    $scope.userbox = $scope.userbox.duplicate();
   }
-  /*$scope.a = $scope.box.getStyle();
-  $scope.box.start();*/
+
 });
