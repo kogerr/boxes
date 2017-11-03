@@ -12,6 +12,11 @@ angular.module('app',[]).controller('appCon', function($scope, $interval, $windo
       this.radius = radius
     }
 
+    static random() {
+      let r = function(a, b){return Math.floor((Math.random() * (b - a + 1)) + a);}
+      return new Box(r(0, $window.innerHeight - 100), r(0, $window.innerWidth - 100), r(0, 100), r(0, 255), r(0, 255), r(0, 255), r(-10, 10), r(-10, 10), r(0, 50));
+    }
+
     getStyle() {
       return {position: 'absolute', left: this.y + 'px', top: this.x + 'px', width : this.size + 'px', height : this.size+ 'px',
       'background-color' : this.getColourCode(), 'border-radius' : this.radius + '%'};
@@ -56,18 +61,18 @@ angular.module('app',[]).controller('appCon', function($scope, $interval, $windo
   }
 
   $scope.boxes = [];
-  $scope.userbox = new Box(50, 50, 100, 0, 127, 255, 6, 6, 40);
-
-  /*$scope.addBox = function(newBox) {
-    let theBox = new Box(newBox.x, newBox.y, newBox.size, newBox.red, newBox.green, newBox.blue, newBox.horizontalSpeed, newBox.verticalSpeed, newBox.radius);
-    theBox.start();
-    $scope.boxes.push(theBox);
-  }*/
+  $scope.userbox = new Box(50, 50, 100, 0, 127, 255, 8, 8, 50);
+  $scope.xMax = $window.innerHeight;
+  $scope.yMax = $window.innerWidth;
 
   $scope.addBox = function() {
     $scope.userbox.start();
     $scope.boxes.push($scope.userbox);
     $scope.userbox = $scope.userbox.duplicate();
+  }
+
+  $scope.randomize = function() {
+    $scope.userbox = Box.random();
   }
 
 });
