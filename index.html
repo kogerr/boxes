@@ -14,34 +14,33 @@
 <div ng-model="userbox" ng-style="userbox.getStyle()" ng-click="userbox.toggle()" ng-mouseover="userbox.reverse()"></div>
 <div ng-repeat="box in boxes" ng-style="box.getStyle()" ng-click="box.toggle()" ng-mouseover="box.reverse()"></div>
 <body ng-app="app" ng-controller="appCon">
-  <div class="box">
-  <div class="box-header">Add Element</div>
-<form ng-init="userbox" ng-submit="addBox(userbox)" class="box-content">
-  <div id="buttons">
-    <button>Go</button>
-    <button type="button" ng-click="randomize()">Random</button>
-  </div>
-  <table style="margin:auto">
-    <tr>
-      <td class="input-with-label"><label>x</label><input type="range" min="0" max="{{xMax}}" ng-model="userbox.x"></input></td>
-      <td class="input-with-label"><label>y</label><input type="range" min="0" max="{{yMax}}"  ng-model="userbox.y"></input></td>
-      <td class="input-with-label"><label>size</label><input type="range" ng-model="userbox.size"></input></td>
-    </tr>
-    <tr>
-      <td class="input-with-label"><label>red</label><input type="range" ng-model="userbox.red" min="0" max="255"></input></td>
-      <td class="input-with-label"><label>green</label><input type="range" ng-model="userbox.green" min="0" max="255"></input></td>
-      <td class="input-with-label"><label>blue</label><input type="range" ng-model="userbox.blue" min="0" max="255"></input></td>
-    </tr>
-    <tr>
-      <td class="input-with-label"><label>V-speed</label><input ng-model="userbox.verticalSpeed" type="range" min="-10" max="10"></input></td>
-      <td class="input-with-label"><label>H-speed</label><input ng-model="userbox.horizontalSpeed" type="range" min="-10" max="10"></input></td>
-      <td class="input-with-label"><label>radius</label><input ng-model="userbox.radius" type="range" min="0" max="50"></input></td>
-    </tr>
-    <table>
-    <img src="orange-blue.jpg" width="1px" height="1px" />
-</form>
-</div>
-
+	<div class="box">
+		<div class="box-header">Add Element</div>
+		<form ng-init="userbox" ng-submit="addBox(userbox)" class="box-content">
+			<div id="buttons">
+				<button>Go</button>
+				<button type="button" ng-click="randomize()">Random</button>
+			</div>
+			<table style="margin: auto">
+				<tr>
+					<td class="input-with-label"><label>x</label><input type="range" min="0" max="{{xMax}}" ng-model="userbox.x"></input></td>
+					<td class="input-with-label"><label>y</label><input type="range" min="0" max="{{yMax}}" ng-model="userbox.y"></input></td>
+					<td class="input-with-label"><label>size</label><input type="range" ng-model="userbox.size"></input></td>
+				</tr>
+				<tr>
+					<td class="input-with-label"><label>red</label><input type="range" ng-model="userbox.red" min="0" max="255"></input></td>
+					<td class="input-with-label"><label>green</label><input type="range" ng-model="userbox.green" min="0" max="255"></input></td>
+					<td class="input-with-label"><label>blue</label><input type="range" ng-model="userbox.blue" min="0" max="255"></input></td>
+				</tr>
+				<tr>
+					<td class="input-with-label"><label>V-speed</label><input ng-model="userbox.verticalSpeed" type="range" min="-10" max="10"></input></td>
+					<td class="input-with-label"><label>H-speed</label><input ng-model="userbox.horizontalSpeed" type="range" min="-10" max="10"></input></td>
+					<td class="input-with-label"><label>radius</label><input ng-model="userbox.radius" type="range" min="0" max="50"></input></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<img src="orange-blue.jpg" width="1px" height="1px" />
 </body>
 
 </html>

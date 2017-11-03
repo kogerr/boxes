@@ -35,18 +35,19 @@ button {
 	border-radius: 0.5em;
 	border-style: solid;
 	width: 6em;
+	outline: 0;
 }
 
 input:focus {
 	outline: none;
 }
 
-button:hover{
+button:hover {
 	background-color: #ff9d48;
 }
 
 button:active, a:active {
-	color: #5ef527;
+	background-color: #5ef527;
 }
 
 p {
@@ -63,7 +64,7 @@ p {
 	border-width: 2px;
 }
 
-input, select{
+input, select {
 	border: none;
 	display: inline-block;
 	outline: none;
@@ -100,13 +101,13 @@ label {
 @media screen and (max-width: 1065px) {
 	#buttons {
 		float: none;
-		margin:auto;
+		margin: auto;
 		display: block;
 		padding: auto;
 		max-width: 18em;
 	}
 	button {
-		margin:auto;
+		margin: auto;
 	}
 }
 

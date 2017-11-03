@@ -14,12 +14,16 @@ angular.module('app',[]).controller('appCon', function($scope, $interval, $windo
 
     static random() {
       let r = function(a, b){return Math.floor((Math.random() * (b - a + 1)) + a);}
-      return new Box(r(0, $window.innerHeight - 100), r(0, $window.innerWidth - 100), r(0, 100), r(0, 255), r(0, 255), r(0, 255), r(-10, 10), r(-10, 10), r(0, 50));
+      return new Box(r(0, $window.innerHeight - 100), r(0, $window.innerWidth - 100),
+    		  r(0, 100), r(0, 255), r(0, 255), r(0, 255), r(-10, 10), r(-10, 10), r(0, 50));
     }
 
     getStyle() {
-      return {position: 'absolute', left: this.y + 'px', top: this.x + 'px', width : this.size + 'px', height : this.size+ 'px',
-      'background-color' : this.getColourCode(), 'border-radius' : this.radius + '%'};
+      return {position: 'absolute', left: this.y + 'px',
+    	  top: this.x + 'px', width : this.size + 'px',
+    	  height : this.size+ 'px',
+    	  'background-color' : this.getColourCode(),
+    	  'border-radius' : this.radius + '%'};
     }
 
     getColourCode() {
@@ -56,7 +60,9 @@ angular.module('app',[]).controller('appCon', function($scope, $interval, $windo
     }
 
     duplicate() {
-      return new Box(this.x, this.y, this.size, this.red, this.green, this.blue, this.horizontalSpeed, this.verticalSpeed, this.radius);
+      return new Box(this.x, this.y, this.size, this.red,
+    		  this.green, this.blue, this.horizontalSpeed,
+    		  this.verticalSpeed, this.radius);
     }
   }
 
