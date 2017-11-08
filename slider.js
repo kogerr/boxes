@@ -2,12 +2,22 @@ angular.module('slider',[]).controller('sliderController', function($scope, $int
   $scope.speed = 0;
   $scope.acc = 0;
   $scope.pos = 0;
+  $scope.deAcc = 0;
   let movement;
   let positionChange = $interval(() => {
     if($scope.pos > $window.innerWidth) {$scope.pos = 0;}
     if($scope.pos < 0) {$scope.pos = $window.innerWidth;}
     $scope.pos += $scope.speed;
   }, 100);
+
+  /*
+  let slowing = $interval(() => {
+    if(!movement && Math.abs($scope.speed) > $scope.deAcc) {
+      $scope.deAcc += 2;
+      $scope.speed -= ($scope.speed > 0) ? $scope.deAcc : ($scope.deAcc * -1);
+    }
+  }, 100);
+  */
 
   $scope.listen = function(e){
     //$scope.asdf = e.clientX;
