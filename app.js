@@ -70,11 +70,4 @@ angular.module('app',[]).controller('appCon', function($scope, $interval, $windo
   $scope.randomize = function() {
     $scope.userbox = Box.random();
   }
-
-  let testArray = ['alfa', 'beta', 'gamma', 'delta', 'charlie', 'bravo'];
-
-  $scope.refreshArray = function() {
-    $scope.array = $filter('filter')(testArray, $scope.filterText);
-  }
-  $scope.refreshArray();
 });

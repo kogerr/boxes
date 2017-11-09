@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+</head>
+<body ng-app="filterApp" ng-controller="filterController">
+
+<input ng-init="filterText" ng-model="filterText" ng-change="refreshArray()" />
+<ul>
+  <li ng-repeat="e in array">{{e}}</li>
+</ul>
+<script src="filterTest.js"></script>
+</body>
+</html>
