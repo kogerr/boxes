@@ -11,9 +11,12 @@
 <link rel="stylesheet" href="common.css">
 <link rel="icon" href="favicon.ico">
 </head>
+<!--
 <div ng-model="userbox" ng-style="userbox.getStyle()" ng-click="userbox.toggle()" ng-mouseover="userbox.reverse()"></div>
 <div ng-repeat="box in boxes" ng-style="box.getStyle()" ng-click="box.toggle()" ng-mouseover="box.reverse()"></div>
+-->
 <body ng-app="app" ng-controller="appCon">
+	<!--
 	<div class="box">
 		<div class="box-header">Add Element</div>
 		<form ng-init="userbox" ng-submit="addBox(userbox)" class="box-content">
@@ -44,6 +47,12 @@
   	<img src="nagykep.png"/>
   	<img src="orange-blue.jpg"/>
 	</div>
+	<img src="si1.bmp" width="88px" height="64px" style="image-rendering: pixelated;" ng-style="userbox.getStyle()" ng-click="userbox.toggle()"/>
+-->
+	<input ng-init="filterText" ng-model="filterText" ng-change="refreshArray()" />
+	<ul>
+    <li ng-repeat="e in array">{{e}}</li>
+	</ul>
 </body>
 
 </html>
