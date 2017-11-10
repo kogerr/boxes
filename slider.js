@@ -61,4 +61,8 @@ angular.module('slider',[]).controller('sliderController', function($scope, $int
     $scope.acc = 0;
     //$scope.direction = 0;
   };
+
+  $scope.mouseListen = function(e){
+    $scope.keyCode = e.clientX;
+  };
 });
