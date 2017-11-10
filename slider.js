@@ -29,6 +29,7 @@ angular.module('slider',[]).controller('sliderController', function($scope, $int
   $scope.player = {pos: 0};
 
   $scope.keyListen = function(e){
+    $scope.keyCode = e.code;
     if (e.keyCode == 37) {
       $scope.direction = -1;
     }
@@ -42,7 +43,7 @@ angular.module('slider',[]).controller('sliderController', function($scope, $int
       }
       let thisMC = movementCount;
       movementCount++;
-      //$interval.cancel(movement);
+      $interval.cancel(movement);
       console.log('cancelling');
       movement = $interval(() => {
         console.log('active movement: ' + thisMC)
