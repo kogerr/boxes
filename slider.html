@@ -10,10 +10,13 @@
 </head>
 <body>
 
-<p>{{speed}}</p>
-<p>{{pos}}</p>
+<p>speed: {{speed}}</p>
+<p>acc: {{acc}}</p>
+<p>deAcc: {{deAcc}}</p>
+<p>dir: {{direction}}</p>
+<p>key: {{keyCode}}</p>
 
-<img src="si1.bmp" width="88px" height="64px" ng-style="{position: 'absolute', left: pos + 'px', 'image-rendering': 'pixelated'}" />
+<img src="si1.bmp" width="88px" height="64px" ng-style="{position: 'absolute', left: player.pos + 'px', 'image-rendering': 'pixelated'}" />
 
 </body>
 
