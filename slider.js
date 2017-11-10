@@ -3,6 +3,7 @@ angular.module('slider',[]).controller('sliderController', function($scope, $int
   $scope.acc = 0;
   $scope.deAcc = 0;
   let movement;
+  let movementCount = 0;
   $scope.direction = 0;
   $scope.keyCode = '';
 
@@ -26,11 +27,6 @@ angular.module('slider',[]).controller('sliderController', function($scope, $int
   }, 100);
 
   $scope.player = {pos: 0};
-  $scope.player.style = {position: 'absolute', left: this.pos + 'px', 'image-rendering': 'pixelated'};
-
-  $scope.listen = function(e){
-    //$scope.asdf = e.clientX;
-  };
 
   $scope.keyListen = function(e){
     if (e.keyCode == 37) {
@@ -40,7 +36,16 @@ angular.module('slider',[]).controller('sliderController', function($scope, $int
       $scope.direction = 1;
     }
     if(!movement || $scope.speed * $scope.direction < 0) {
+      if($scope.speed == 0 && $scope.acc == 0 && $scope.deAcc == 0) {
+        console.log('STUCK');
+        console.log(!movement);
+      }
+      let thisMC = movementCount;
+      movementCount++;
+      //$interval.cancel(movement);
+      console.log('cancelling');
       movement = $interval(() => {
+        console.log('active movement: ' + thisMC)
 
         $scope.acc += $scope.direction;
         $scope.speed += $scope.acc;
@@ -51,9 +56,8 @@ angular.module('slider',[]).controller('sliderController', function($scope, $int
 
   $scope.keyUpListen = function(e){
     $interval.cancel(movement);
-    console.log('cancelling');
     movement = false;
     $scope.acc = 0;
-    $scope.direction = 0;
+    //$scope.direction = 0;
   };
 });
